@@ -1,0 +1,73 @@
+<section>
+  <div class="m-auto mt-10 mb-10 max-w-lg w-5/6 shadow-xl bg-orange rounded-lg">
+    <form
+      class="flex flex-wrap justify-center p-5 gap-3 overflow-hidden"
+      (ngSubmit)="calculate()"
+    >
+      <div class="form-item">
+        <label class="text-white" for="initial">Initial Investment</label>
+        <input
+          class="rounded-lg"
+          id="initial"
+          type="number"
+          [ngModel]="initialInvestment()"
+          (ngModelChange)="initialInvestment.set($event)"
+          name="initial"
+          placeholder="0"
+        />
+      </div>
+
+      <div class="form-item">
+        <label class="text-white" for="annual">Annual Investment</label>
+        <input
+          class="rounded-lg"
+          id="annual"
+          type="number"
+          [ngModel]="annualInvestment()"
+          (ngModelChange)="annualInvestment.set($event)"
+          name="annual"
+          placeholder="0"
+        />
+      </div>
+
+      <div class="form-item">
+        <label class="text-white" for="expected">Expected Return (%)</label>
+        <input
+          class="rounded-lg"
+          id="expected"
+          type="number"
+          [ngModel]="expectedReturn()"
+          (ngModelChange)="expectedReturn.set($event)"
+          name="expected"
+          placeholder="0"
+        />
+      </div>
+
+      <div class="form-item">
+        <label class="text-white" for="duration">Duration (Years)</label>
+        <input
+          class="rounded-lg"
+          id="duration"
+          type="number"
+          [ngModel]="duration()"
+          (ngModelChange)="duration.set($event)"
+          name="duration"
+          placeholder="0"
+        />
+      </div>
+
+      <button
+        class="w-full p-2 rounded-lg shadow-xl mt-5 text-grayDark font-bold bg-amber-200"
+        type="submit"
+      >
+        Calculate
+      </button>
+    </form>
+  </div>
+
+  <!-- Result -->
+  <app-result
+    [calcResult]="results"
+    [showInitialValue]="showInitialValue"
+  ></app-result>
+</section>

@@ -1,0 +1,36 @@
+@if (showInitialValue()) {
+<div class="m-auto max-w-lg w-5/6 text-sm font-thin text-white mb-10">
+  <table class="w-full">
+    <thead>
+      <tr class="flex justify-between">
+        <th>Year</th>
+        <th>Investment Value</th>
+        <th>Interest (Year)</th>
+        <th>Total Interest</th>
+        <th>Invested Capital</th>
+      </tr>
+    </thead>
+    <tbody class="gap-y-2 flex flex-col mt-3">
+      @for (result of calcResult(); track result.year) {
+      <tr class="flex justify-between">
+        <td>{{ result.year }}</td>
+        <td>
+          {{ result.investmentValue | currency : "USD" : "symbol" : "1.2-2" }}
+        </td>
+        <td>{{ result.interest | currency : "USD" : "symbol" : "1.2-2" }}</td>
+        <td>
+          {{ result.totalInterest | currency : "USD" : "symbol" : "1.2-2" }}
+        </td>
+        <td>
+          {{ result.investedCapital | currency : "USD" : "symbol" : "1.2-2" }}
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+} @else {
+<p class="text-center text-white">
+  Please enter some values and press "Calculate"
+</p>
+}

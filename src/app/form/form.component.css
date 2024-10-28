@@ -1,0 +1,16 @@
+input {
+    padding: 10px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+input::placeholder {
+    color: white;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+}
